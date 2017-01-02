@@ -1,0 +1,14 @@
+---
+version: '2'
+services:
+  db:
+    build:
+      context: .
+    environment: 
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: admin
+      DB_NAME: docker_db
+      DB_PASS: pass 
+      DB_USER: docker_u
+      
+    

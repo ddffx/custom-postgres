@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e 
+echo "******CREATING "$DB_NAME" DATABASE******"
+psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" <<-EOSQL
+    CREATE USER "$DB_USER";
+    CREATE DATABASE "$DB_NAME";
+    GRANT ALL PRIVILEGES ON DATABASE "$DB_NAME" TO "$DB_USER";
+EOSQL
+
+echo ""
+echo "****** "$DB_NAME" DATABASE CREATED******"
